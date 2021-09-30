@@ -3,14 +3,18 @@ const app = express()
 const cors = require('cors')
 require('./db/mongoose')
 const PORT = process.env.PORT || 8080
-const blistController = require('./controllers/blist')
-const urlArray = ['http://localhost:8080']
-const corsOption = {
+const blistController = require('./controllers/blist.js')
+const urlArray = ['http://localhost:3000']
+const corsOptions = {
   origin: (origin, cb) => {
-
-    if(urlArray.indexOf(origin) != -1)
+    if (urlArray.indexOf(origin) != -1 || !origin) {
+      cb(null, true)
+    } else {
+      cb(new Error('Not allowed by CORS!!!!!!!!!'))
+    }
   }
 }
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use('/blist', blistController)
 
