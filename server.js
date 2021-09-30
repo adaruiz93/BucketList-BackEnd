@@ -4,6 +4,7 @@ require('./db/mongoose')
 const PORT = process.env.PORT || 8080
 const blistController = require('./controllers/blist')
 
+app.use(express.json())
 app.use('/blist', blistController)
 
 
