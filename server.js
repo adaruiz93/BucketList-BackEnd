@@ -1,5 +1,10 @@
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT || 9000
+const PORT = process.env.PORT || 8080
+const blistController = require('./controllers/blist')
+
+app.use('/blist', blistController)
+
+
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
