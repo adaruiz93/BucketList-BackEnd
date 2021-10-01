@@ -4,7 +4,7 @@ const Blist = require('../models/blist')
 // Create an 'INDEX' Route(GET) & test in Postman
 router.get('/', async (req,res) => {
   try{
-    const newBlistItem = await Blist.find(req.body)
+    const newBlistItem = await Blist.find()
     res.status(200).json(newBlistItem)
   }catch(err){
     res.status(400).json({ err: err.message })

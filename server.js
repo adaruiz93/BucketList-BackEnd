@@ -4,7 +4,7 @@ const cors = require('cors')
 require('./db/mongoose')
 const PORT = process.env.PORT || 8080
 const blistController = require('./controllers/blist.js')
-const urlArray = ['http://localhost:3000']
+const urlArray = ['http://localhost:8080']
 const corsOptions = {
   origin: (origin, cb) => {
     if (urlArray.indexOf(origin) != -1 || !origin) {
