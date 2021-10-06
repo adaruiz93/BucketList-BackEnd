@@ -4,7 +4,8 @@ const cors = require('cors')
 require('./db/mongoose')
 const PORT = process.env.PORT || 8080
 const blistController = require('./controllers/blist.js')
-const urlArray = ['http://localhost:9000']
+const urlArray = ['http://localhost:3000'] // Not super sure why you were on 9000,
+//but I changed it to 3000 and cors seems to be working now
 const corsOptions = {
   origin: (origin, cb) => {
     if (urlArray.indexOf(origin) != -1 || !origin) {
